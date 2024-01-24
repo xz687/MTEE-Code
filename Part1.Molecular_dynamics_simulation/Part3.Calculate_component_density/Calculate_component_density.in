@@ -1,0 +1,32 @@
+#water from net
+dimension 3
+
+processors * * 1
+
+boundary p p p
+units real
+atom_style full
+
+neighbor 2 bin
+neigh_modify delay 0 every 1 check yes
+
+read_restart restart.10000000.perme
+
+#charge
+kspace_style pppm 0.0001
+
+reset_timestep 0
+
+group h type 8 9
+group hi union hi h
+
+reset_timestep 0
+
+compute hbchunk  hb chunk/atom bin/1d  z lower 3.5 bound z lower 56.0 units box     #Calculate the density distribution of the hydrophobic component along the z-axis
+compute hichunk  hi chunk/atom bin/1d  z lower 3.5 bound z lower 56.0 units box     #Calculate the density distribution of the hydrophilic component along the z-axis
+
+#Output distribution data every 5ns
+fix 1 hb ave/chunk 2000 250 500000 hbchunk density/mass file hb_zd16.dat
+fix 2 hi ave/chunk 2000 250 500000 hichunk density/mass file hi_zd16.dat
+
+rerun perme.dump first 10002000 every 2000 last 25000000 dump x y z
