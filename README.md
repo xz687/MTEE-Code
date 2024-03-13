@@ -1,9 +1,9 @@
-# Code Supplementary Materials for Paper "Machine-Learning-Assisted Insights into the Molecular Transport in Multi-layered Multi-component Interface Structure"
+# Code and Data for "Deep learning–assisted insights into molecular-level transport in heterogeneous electrolyte films on electrodes"
 
 
 ## Overview
 
-This repository holds the code developed for the paper "Machine-Learning-Assisted Insights into the Molecular Transport in Multi-layered Multi-component Interface Structure". The code provides guidance and resources for replicating the processes mentioned in the paper.
+This repository holds the code developed for the paper "Deep learning–assisted insights into molecular-level transport in heterogeneous electrolyte films on electrodes". The code provides guidance and resources for replicating the processes mentioned in the paper.
 
 ## Directory Structure
 
